@@ -97,15 +97,15 @@
           errorMessage += "FizzNumの入力欄が空欄です。<br>";
         } else if (isNaN(fizzNum)) {
           errorMessage += "FizzNumに文字が入力されています。<br>";
-        } else if (!Number.isInteger(parseFloat(fizzNum))) {
-          errorMessage += "FizzNumに整数値以外が入力されています。<br>";
+        } else if (parseFloat(fizzNum) % 1 !== 0) {
+          errorMessage += "FizzNumに少数が入力されています。<br>";
         }
         if (!buzzNum) {
           errorMessage += "BuzzNumの入力欄が空欄です。<br>";
         } else if (isNaN(buzzNum)) {
           errorMessage += "BuzzNumに文字が入力されています。<br>";
-        } else if (!Number.isInteger(parseFloat(buzzNum))) {
-          errorMessage += "BuzzNumに整数値以外が入力されています。<br>";
+        } else if (parseFloat(buzzNum) % 1 !== 0) {
+          errorMessage += "BuzzNumに少数が入力されています。<br>";
         }
         if (errorMessage) {
           result.innerHTML +=
