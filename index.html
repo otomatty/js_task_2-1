@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FizzBuzz問題</title>
+    <style>
+      body {
+        background-color: #f7f7f7;
+        width: 60%;
+        margin: 100px auto;
+        padding: 0;
+        text-align: center;
+      }
+      #app {
+        text-align: center;
+        background-color: #fff;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .input-box {
+        margin-bottom: 20px;
+      }
+      input[type="text"] {
+        margin: 0 5px 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      #result {
+        width: 60%;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .result-title {
+        font-size: 1.6rem;
+        font-weight: bold;
+      }
+      .error-message {
+        line-height: 2;
+        span {
+          padding: 0 10px;
+          font-size: 1.6rem;
+          font-weight: bold;
+          background-color: red;
+          color: #fff;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>FizzBuzz問題</h1>
+      <div class="input-box">
+        FizzNum
+        <input
+          type="text"
+          id="fizzNum"
+          placeholder="整数値を入力してください"
+        />
+      </div>
+      <div class="input-box">
+        BuzzNum
+        <input
+          type="text"
+          id="buzzNum"
+          placeholder="整数値を入力してください"
+        />
+      </div>
+      <button onclick="fizzBuzz()">実行</button>
+      <button onclick="resetForm()">リセット</button>
+      <div id="result"></div>
+    </div>
+
+    <script>
+      function fizzBuzz() {
+        const fizzNum = document.getElementById("fizzNum").value;
+        const buzzNum = document.getElementById("buzzNum").value;
+        const result = document.getElementById("result");
+        result.innerHTML = '<p class="result-title">【出力結果】</p>'; // 出力タイトルを初期化時に設定
+
+        let errorMessage = "";
+        if (!fizzNum) {
+          errorMessage += "FizzNumの入力欄が空欄です。<br>";
+        } else if (isNaN(fizzNum)) {
+          errorMessage += "FizzNumに文字が入力されています。<br>";
+        } else if (!Number.isInteger(parseFloat(fizzNum))) {
+          errorMessage += "FizzNumに整数値以外が入力されています。<br>";
+        }
+        if (!buzzNum) {
+          errorMessage += "BuzzNumの入力欄が空欄です。<br>";
+        } else if (isNaN(buzzNum)) {
+          errorMessage += "BuzzNumに文字が入力されています。<br>";
+        } else if (!Number.isInteger(parseFloat(buzzNum))) {
+          errorMessage += "BuzzNumに整数値以外が入力されています。<br>";
+        }
+        if (errorMessage) {
+          result.innerHTML +=
+            '<p class="error-message"><span>Error</span><br>' +
+            errorMessage +
+            "整数値を入力してください。</p>";
+          return;
+        }
+
+        for (let i = 1; i <= 99; i++) {
+          if (i % fizzNum === 0 && i % buzzNum === 0) {
+            result.innerHTML += "<p>fizzBuzz " + i + "</p>";
+          } else if (i % fizzNum === 0) {
+            result.innerHTML += "<p>fizz " + i + "</p>";
+          } else if (i % buzzNum === 0) {
+            result.innerHTML += "<p>buzz " + i + "</p>";
+          }
+        }
+      }
+
+      function resetForm() {
+        document.getElementById("fizzNum").value = "";
+        document.getElementById("buzzNum").value = "";
+        document.getElementById("result").innerHTML = "";
+      }
+    </script>
+  </body>
+</html>
