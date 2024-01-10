@@ -1,7 +1,7 @@
 const fizzBuzz = () => {
-  const fizzNum = document.getElementById("fizzNum").value;
-  const buzzNum = document.getElementById("buzzNum").value;
-  const result = document.getElementById("result");
+  const fizzNum = document.getElementById('fizzNum').value;
+  const buzzNum = document.getElementById('buzzNum').value;
+  const result = document.getElementById('result');
   result.innerHTML = '<p class="result-title">【出力結果】</p>';
 
   if (
@@ -14,17 +14,17 @@ const fizzBuzz = () => {
 
   for (let i = 1; i <= 99; i++) {
     if (i % fizzNum === 0 && i % buzzNum === 0) {
-      result.innerHTML += "<p>fizzBuzz " + i + "</p>";
+      result.innerHTML += `<p>fizzBuzz ${i}</p>`;
     } else if (i % fizzNum === 0) {
-      result.innerHTML += "<p>fizz " + i + "</p>";
+      result.innerHTML += `<p>fizz ${i}</p>`;
     } else if (i % buzzNum === 0) {
-      result.innerHTML += "<p>buzz " + i + "</p>";
+      result.innerHTML += `<p>buzz ${i}</p>`;
     }
   }
 };
 
 const resetForm = () => {
-  document.getElementById("fizzNum").value = "";
-  document.getElementById("buzzNum").value = "";
-  document.getElementById("result").innerHTML = "";
+  document.getElementById('fizzNum').value = '';
+  document.getElementById('buzzNum').value = '';
+  document.getElementById('result').innerHTML = '';
 };
