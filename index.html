@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FizzBuzz問題</title>
+    <script defer src="js/main.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>FizzBuzz問題</h1>
+      <div class="input-box">
+        FizzNum
+        <input
+          type="text"
+          id="fizzNum"
+          placeholder="整数値を入力してください"
+        />
+      </div>
+      <div class="input-box">
+        BuzzNum
+        <input
+          type="text"
+          id="buzzNum"
+          placeholder="整数値を入力してください"
+        />
+      </div>
+      <button onclick="fizzBuzz()">実行</button>
+      <button onclick="resetForm()">リセット</button>
+      <div id="result"></div>
+    </div>
+  </body>
+</html>
